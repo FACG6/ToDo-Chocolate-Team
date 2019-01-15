@@ -66,7 +66,21 @@ test('Example test for mark', function(t) {
 
 test('Example test for mark', function(t) {
   const actual = logic.markTodo(to_dos_mark, 5);
-  const expect = 'Please Enter Valid ID';
-  t.deepEqual(actual, expect, 'when id not found must return Please Enter Valid ID');
+  const expect = [{
+      id: 0,
+      description: 'make tea',
+      done: false
+    },
+    {
+      id: 1,
+      description: 'eat Lanch',
+      done: true
+    }, {
+      id: 2,
+      description: 'apple',
+      done: false
+    }
+  ];;
+  t.deepEqual(actual, expect, 'the array must not change');
   t.end();
 });

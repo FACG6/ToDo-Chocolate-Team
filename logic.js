@@ -7,22 +7,22 @@ var todoFunctions = {
     // You do not need to understand the implementation of this function.
     generateId: (function() {
       var idCounter = 0;
-  
+
       function incrementCounter() {
         return (idCounter += 1);
       }
-  
+
       return incrementCounter;
     })(),
-    
-    //cloneArrayOfObjects will create a copy of the todos array 
+
+    //cloneArrayOfObjects will create a copy of the todos array
     //changes to the new array don't affect the original
     cloneArrayOfObjects: function(todos) {
       return todos.map(function(todo){
         return JSON.parse(JSON.stringify(todo));
       });
     },
-    
+
     addTodo: function(todos, newTodo) {
       // should leave the input argument todos unchanged (you can use cloneArrayOfObjects)
       // returns a new array, it should contain todos with the newTodo added to the end.
@@ -39,6 +39,24 @@ var todoFunctions = {
       // in the new todo array, all elements will remain unchanged except the one with id: idToMark
       // this element will have its done value toggled
       // hint: array.map
+      //clone the origin array
+      if (idToMark < 0) {
+    return 'Please Enter Valid ID';
+  }
+    let newToDos = todos.map(element => ({...element}));
+    //to go inside the array
+    for (let i in newToDos) {
+      //to go inside the object in array
+      if (newToDos[i].id === idToMark) {
+        //if done true change to false and if false change to false
+        if (newToDos[i].done === true){
+          newToDos[i].done=false;
+        }else {
+          newToDos[i].done=true;
+        }
+      }
+    }
+    return newToDos;
     },
     sortTodos: function(todos, sortFunction) {
       // stretch goal! Do this last
@@ -47,11 +65,11 @@ var todoFunctions = {
       // hint: array.slice, array.sort
     },
   };
-  
-  
+
+
   // Why is this if statement necessary?
   // The answer has something to do with needing to run code both in the browser and in Node.js
-  // See this article for more details: 
+  // See this article for more details:
   // http://www.matteoagosti.com/blog/2013/02/24/writing-javascript-modules-for-both-browser-and-node/
   if (typeof module !== 'undefined') {
     module.exports = todoFunctions;
