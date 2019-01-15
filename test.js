@@ -16,6 +16,7 @@ let to_dos_mark = [{
   }
 ];
 
+
 test('Example test for mark', function(t) {
   const actual = logic.markTodo(to_dos_mark, 0);
   const expect = [{
@@ -80,7 +81,54 @@ test('Example test for mark', function(t) {
       description: 'apple',
       done: false
     }
-  ];;
+  ];
   t.deepEqual(actual, expect, 'the array must not change');
+  t.end();
+});
+
+// addTodo Function test
+let array = [];
+test('Test addTodo function', function (t) {
+  let actual = logic.addTodo(array, 'ayman');
+  let expected = [{ id: 1, description: 'ayman', done: false }]
+  t.deepEqual(actual, expected, 'new todo is added to todos array');
+  t.end();
+});
+
+test('Test addTodo function', function (t) {
+  let actual = logic.addTodo(array, '');
+  let expected = -1;
+  t.deepEqual(actual, expected, 'add empty description');
+  t.end();
+});
+
+test('Test addTodo function', function (t) {
+  let actual = logic.addTodo(array, null);
+  let expected = -1;
+  t.deepEqual(actual, expected, 'add null description');
+  t.end();
+});
+
+test('Test addTodo function', function (t) {
+  let actual = logic.addTodo(array, 2);
+  let expected = -1;
+  t.deepEqual(actual, expected, 'add number description');
+  t.end();
+});
+
+test('Test addTodo function', function (t) {
+  let actual = logic.addTodo(array, ' ');
+  let expected = -1;
+  t.deepEqual(actual, expected, 'add space description');
+  t.end();
+});
+
+//deleteTodo function tests
+test('Test deleteTodo function', function (t) {
+  let arrayForDelete = [{ id: 1, description: 'ayman', done: false }]
+  let actual = logic.deleteTodo(arrayForDelete, 1);
+  let expected = [];
+  t.deepEqual(actual, expected, 'add space description');
+
   t.end();
 });
