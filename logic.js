@@ -75,9 +75,42 @@ var todoFunctions = {
     },
     sortTodos: function(todos, sortFunction) {
       // stretch goal! Do this last
-      // should leave the input arguement todos unchanged (you can use cloneArrayOfObjects)
-      // sortFunction will have same signature as the sort function in array.sort
-      // hint: array.slice, array.sort
+    // should leave the input arguement todos unchanged (you can use cloneArrayOfObjects)
+    // sortFunction will have same signature as the sort function in array.sort
+    // hint: array.slice, array.sort
+    let newToDos = todos.map(element => ({
+      ...element
+    }));
+    /*let newToDosDone =newToDos.reduce(element=>{if(element.done) return element},[]);
+    let newToDosNotDone = newToDos.reduce(element=>{if(!element.done) return element},[]);*/
+    let newToDosDone = [];
+    let newToDosNotDone = [];
+    //first sort the list by done or not done this task
+    for (let i in newToDos) {
+      if (newToDos[i].done) {
+        newToDosDone.push(newToDos[i]);
+      } else {
+        newToDosNotDone.push(newToDos[i]);
+      }
+    }
+    //return newToDosNotDone;
+
+    //sort the not done array
+    newToDosNotDone.sort((a, b) => {
+      if (a.description > b.description) {
+        return 1;
+      } else {
+        return -1;
+      }
+    });
+    newToDosDone.sort((a, b) => {
+      if (a.description > b.description) {
+        return 1;
+      } else {
+        return -1;
+      }
+    });
+    return newToDosNotDone.concat(newToDosDone);
     },
   };
 
