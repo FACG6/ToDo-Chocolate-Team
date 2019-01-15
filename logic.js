@@ -69,19 +69,55 @@ var todoFunctions = {
       }
     }
     return newToDos;
-  },
-  sortTodos: function(todos, sortFunction) {
-    // stretch goal! Do this last
+    },
+    sortTodos: function(todos, sortFunction) {
+      // stretch goal! Do this last
     // should leave the input arguement todos unchanged (you can use cloneArrayOfObjects)
     // sortFunction will have same signature as the sort function in array.sort
     // hint: array.slice, array.sort
-  }
-};
+    let newToDos = todos.map(element => ({
+      ...element
+    }));
+    /*let newToDosDone =newToDos.reduce(element=>{if(element.done) return element},[]);
+    let newToDosNotDone = newToDos.reduce(element=>{if(!element.done) return element},[]);*/
+    let newToDosDone = [];
+    let newToDosNotDone = [];
+    //first sort the list by done or not done this task
+    for (let i in newToDos) {
+      if (newToDos[i].done) {
+        newToDosDone.push(newToDos[i]);
+      } else {
+        newToDosNotDone.push(newToDos[i]);
+      }
+    }
+    //return newToDosNotDone;
+
+    //sort the not done array
+    newToDosNotDone.sort((a, b) => {
+      if (a.description > b.description) {
+        return 1;
+      } else {
+        return -1;
+      }
+    });
+    newToDosDone.sort((a, b) => {
+      if (a.description > b.description) {
+        return 1;
+      } else {
+        return -1;
+      }
+    });
+    return newToDosNotDone.concat(newToDosDone);
+    },
+  };
+
+
+
 
 // Why is this if statement necessary?
 // The answer has something to do with needing to run code both in the browser and in Node.js
 // See this article for more details:
 // http://www.matteoagosti.com/blog/2013/02/24/writing-javascript-modules-for-both-browser-and-node/
-if (typeof module !== "undefined") {
+if (typeof module !== 'undefined') {
   module.exports = todoFunctions;
 }
