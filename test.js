@@ -132,3 +132,38 @@ test('Test deleteTodo function', function (t) {
 
   t.end();
 });
+
+//make test for sort
+test('Example test for mark', function(t) {
+  const actual = logic.sortTodos(to_dos_mark);
+  const expect = [{
+      id: 2,
+      description: 'apple',
+      done: false
+    },
+    {
+      id: 0,
+      description: 'make tea',
+      done: false
+    }, {
+      id: 1,
+      description: 'eat Lanch',
+      done: true
+    }
+  ];
+  t.deepEqual(actual, expect, 'the list is not sorted');
+  t.end();
+});
+
+test('Example test for mark', function(t) {
+  const actual = logic.sortTodos([]);
+  const expect = [];
+  t.deepEqual(actual, expect, 'must reurn empty array');
+  t.end();
+});
+test('Example test for mark', function(t) {
+  const actual = logic.sortTodos([{id: 0,description: 'eat lunch',done: false}]);
+  const expect = [{id: 0,description: 'eat lunch',done: false}];
+  t.deepEqual(actual, expect, 'must reurn one element');
+  t.end();
+});
