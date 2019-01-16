@@ -7,7 +7,6 @@
 .finish {
   text-decoration: line-through;
   color: #bf1818;
-  ;
 }
 
 body {
@@ -17,7 +16,6 @@ body {
   background: -webkit-linear-gradient(to right, #f2994a, #f2c94c);
   /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #f2994a, #f2c94c);
-  /*overflow-x:scroll;*/
 }
 
 .container {
