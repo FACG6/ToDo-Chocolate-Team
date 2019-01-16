@@ -6,21 +6,24 @@
     var container = document.getElementById('todo-container');
     var addTodoForm = document.getElementById('add-todo');
 
-    var state = [
-      { id: -3, description: 'first todo' },
-      { id: -2, description: 'second todo' },
-      { id: -1, description: 'third todo' },
-    ]; // this is our initial todoList
+    var state = []; // this is our initial todoList
+    var sortodo = document.querySelector('.fas');
+    sortodo.addEventListener('click', function(e){
+      var newState = todoFunctions.sortTodos(state,true);
+      update(newState);
+    });
 
     // This function takes a todo, it returns the DOM node representing that todo
     var createTodoNode = function(todo) {
       var todoNode = document.createElement('li');
-      // you will need to use addEventListener
-      //todoNode.textContent=todo.description;
-      // add span holding description
 
+      // add span holding description
+        let span = document.createElement('span');
+        span.innerText = todo.description;
+        todoNode.appendChild(span);
       // this adds the delete button
       var deleteButtonNode = document.createElement('button');
+      deleteButtonNode.innerText= 'Delete'
       deleteButtonNode.addEventListener('click', function(event) {
         var newState = todoFunctions.deleteTodo(state, todo.id);
         update(newState);
@@ -28,23 +31,27 @@
       todoNode.appendChild(deleteButtonNode);
 
       // add markTodo button
-
+      var markButtonNode = document.createElement('button');
+      markButtonNode.innerText= 'Mark'
+      markButtonNode.addEventListener('click', function(event) {
+      var newState = todoFunctions.markTodo(state, todo.id);
+      update(newState);
+      });
+      todoNode.appendChild(markButtonNode);
       // add classes for css
-
+      if(todo.done === true){
+        span.classList.add('finish');
+      }
       return todoNode;
     };
 
     // bind create todo form
     if (addTodoForm) {
       addTodoForm.addEventListener('submit', function(event) {
-        // https://developer.mozilla.org/en-US/docs/Web/Events/submit
-        // what does event.preventDefault do?
-        // what is inside event.target?
-
-        var description = '?'; // event.target ....
-
-        // hint: todoFunctions.addTodo
-        var newState = []; // ?? change this!
+        event.preventDefault();
+        let description = document.querySelector('input[name=description]').value;
+        let newState = todoFunctions.addTodo(state,description);
+        document.querySelector('input[name=description]').value = '';
         update(newState);
       });
     }
