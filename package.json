@@ -4,7 +4,8 @@
   "description": "",
   "main": "dom.js",
   "scripts": {
-    "test": "tape test.js | tap-spec"
+    "test": "tape test.js | tap-spec",
+    "cover": "istanbul cover  ./test.js | tap-spec"
   },
   "repository": {
     "type": "git",
@@ -19,6 +20,7 @@
   "homepage": "https://github.com/FACG6/ToDo-Chocolate-Team#readme",
   "dependencies": {},
   "devDependencies": {
+    "istanbul": "^0.4.5",
     "tap-spec": "^5.0.0",
     "tape": "^4.9.2"
   }

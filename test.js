@@ -29,7 +29,8 @@ test('Example test for mark', function(t) {
       id: 1,
       description: 'eat Lanch',
       done: true
-    }, {
+    },
+    {
       id: 2,
       description: 'apple',
       done: false
