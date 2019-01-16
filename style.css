@@ -21,7 +21,6 @@ body {
 }
 
 .container {
-  /*min-height: 100vh;*/
   padding: 25px;
   max-width: 1200px;
   width: 100%;
@@ -54,7 +53,6 @@ header {
   color: #ea960d;
   padding: 10px 21px;
   border: 2px solid #3c1f04;
-  ;
   border-radius: 10px;
   font-weight: bolder;
   cursor: pointer;
@@ -80,8 +78,6 @@ header {
 }
 
 .list_todo li {
-  /*  background: #8e0e00;
-  background: -webkit-linear-gradient(to right, #8e0e00, #1f1c18);*/
   background: linear-gradient(to right, #dc7d082e, #7d4601);
   transform: rotate(-8deg);
   box-shadow: 2px 2px 10px 5px rgba(60, 31, 4, 0.82), -2px -2px 10px 5px rgba(0, 0, 0, .1);
@@ -92,7 +88,6 @@ header {
   font-size: 20px;
   font-weight: bold;
   padding: 10px;
-  /*float: left;*/
   margin: 40px;
   transition: all .3s;
   position: relative;
@@ -100,11 +95,10 @@ header {
 
 .list_todo li span {
   overflow-y: auto;
-  height:100px;
-  padding:5px;
+  height: 100px;
+  padding: 5px;
   display: block;
   word-break: break-all;
-  /*transform: rotate(8deg);*/
 }
 
 .list_todo button {
@@ -133,4 +127,48 @@ header {
 
 .list_todo i[class="fa fa-trash-o"] {
   margin-left: 60px;
+}
+
+.dialog {
+  padding: 5px;
+  margin: 0 auto;
+  width: 25%;
+  height: 22%;
+  background: #78470a;
+  border-radius: 7px;
+  border: 1px solid #bd670c;
+}
+
+.delete_content {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 25px 10px;
+}
+
+.dialog button {
+  float: right;
+  padding: 7px;
+  margin: 0px 5px;
+  background: #351a03d9;
+  color: #ecad71;
+  border: 1px solid #ecad71;
+  border-radius: 7px;
+  font-weight: bold;
+  outline: none;
+  cursor: pointer;
+}
+
+.dialog button:hover {
+  border: 1px solid black;
+  background: #77460a;
+  color: black;
+}
+
+.error {
+  color: #8a1818;
+  font-size: 18px;
+  margin-top: 10px;
+  padding: 5px;
+  font-weight: bold;
+  margin-right: 50px;
 }
