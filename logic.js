@@ -28,8 +28,8 @@ var todoFunctions = {
     // returns a new array, it should contain todos with the newTodo added to the end.
     // add an id to the newTodo. You can use the generateId function to create an id.
     // hint: array.conca
-    if (newTodo === "" || newTodo === null) return -1;
-    if (!isNaN(newTodo)) return -1;
+    if (newTodo === "" || newTodo === null) return todos;
+    if (!isNaN(newTodo)) return todos;
     let newArray = todos.map(todo => ({ ...todo }));
     let obj = {};
     obj.id = todoFunctions.generateId();
