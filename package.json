@@ -20,7 +20,7 @@
   "homepage": "https://github.com/FACG6/ToDo-Chocolate-Team#readme",
   "dependencies": {},
   "devDependencies": {
-    "istanbul": "^0.4.5",
+    "istanbul": "^1.1.0-alpha.1",
     "tap-spec": "^5.0.0",
     "tape": "^4.9.2"
   }
