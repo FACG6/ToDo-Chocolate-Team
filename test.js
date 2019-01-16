@@ -98,28 +98,28 @@ test('Test addTodo function', function (t) {
 
 test('Test addTodo function', function (t) {
   let actual = logic.addTodo(array, '');
-  let expected = -1;
+  let expected = array;
   t.deepEqual(actual, expected, 'add empty description');
   t.end();
 });
 
 test('Test addTodo function', function (t) {
   let actual = logic.addTodo(array, null);
-  let expected = -1;
+  let expected = array;
   t.deepEqual(actual, expected, 'add null description');
   t.end();
 });
 
 test('Test addTodo function', function (t) {
   let actual = logic.addTodo(array, 2);
-  let expected = -1;
+  let expected = array;
   t.deepEqual(actual, expected, 'add number description');
   t.end();
 });
 
 test('Test addTodo function', function (t) {
   let actual = logic.addTodo(array, ' ');
-  let expected = -1;
+  let expected = array;
   t.deepEqual(actual, expected, 'add space description');
   t.end();
 });

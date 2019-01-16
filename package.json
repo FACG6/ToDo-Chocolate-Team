@@ -4,8 +4,7 @@
   "description": "",
   "main": "dom.js",
   "scripts": {
-    "test": "tape test.js | tap-spec",
-    
+    "test": "tape test.js | tap-spec"
   },
   "repository": {
     "type": "git",
