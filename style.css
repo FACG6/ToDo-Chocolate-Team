@@ -95,12 +95,13 @@ header {
   padding: 10px;
   /*float: left;*/
   margin: 40px;
+  transition: all .3s;
 }
 
 .list_todo li span {
   display: block;
   word-break: break-all;
-  transform: rotate(8deg);
+  /*transform: rotate(8deg);*/
 }
 
 .list_todo button {
@@ -118,6 +119,11 @@ header {
   font-size: 18px;
   color: #211104;
   font-weight: bold;
+}
+
+.list_todo li:hover {
+  transform: rotate(0deg);
+  transition: all .3s;
 }
 
 .list_todo i[class="fa fa-trash-o"] {
