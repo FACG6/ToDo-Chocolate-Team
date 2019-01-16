@@ -53,11 +53,17 @@ var todoFunctions = {
     // hint: array.map
     //clone the origin array
     if (idToMark < 0) {
-      return "Please Enter Valid ID";
+      return 'Please Enter Valid ID';
     }
-    let newToDos = todos.map(element => ({ ...element }));
+    let newToDos = todos.map(element => ({
+      ...element
+    }));
+    let function_mark = (element)=>{
+      if(element.id===idToMark) element.done = (!element.done);
+      return element;
+    }
     //to go inside the array
-    for (let i in newToDos) {
+  /*for (let i in newToDos) {
       //to go inside the object in array
       if (newToDos[i].id === idToMark) {
         //if done true change to false and if false change to false
@@ -68,50 +74,38 @@ var todoFunctions = {
         }
       }
     }
-    return newToDos;
-    },
-    sortTodos: function(todos, sortFunction) {
-      // stretch goal! Do this last
+    return newToDos;*/
+    return newToDos.map(function_mark);
+  },
+  sortTodos: function(todos, sortFunction) {
+    // stretch goal! Do this last
     // should leave the input arguement todos unchanged (you can use cloneArrayOfObjects)
     // sortFunction will have same signature as the sort function in array.sort
     // hint: array.slice, array.sort
+    //clone the origin array
     let newToDos = todos.map(element => ({
       ...element
     }));
-    /*let newToDosDone =newToDos.reduce(element=>{if(element.done) return element},[]);
-    let newToDosNotDone = newToDos.reduce(element=>{if(!element.done) return element},[]);*/
-    let newToDosDone = [];
-    let newToDosNotDone = [];
-    //first sort the list by done or not done this task
-    for (let i in newToDos) {
-      if (newToDos[i].done) {
-        newToDosDone.push(newToDos[i]);
+    //put the done in new array
+    let newToDosDone = newToDos.filter(element => element.done);
+    //put not done in new array
+    let newToDosNotDone = newToDos.filter(element => !element.done);
+    //function for sort alphaptic from a-z
+    let function_sort = (a, b) => {
+      if (a.description > b.description) {
+        return 1;
       } else {
-        newToDosNotDone.push(newToDos[i]);
+        return -1;
       }
     }
-    //return newToDosNotDone;
-
     //sort the not done array
-    newToDosNotDone.sort((a, b) => {
-      if (a.description > b.description) {
-        return 1;
-      } else {
-        return -1;
-      }
-    });
-    newToDosDone.sort((a, b) => {
-      if (a.description > b.description) {
-        return 1;
-      } else {
-        return -1;
-      }
-    });
+    newToDosNotDone.sort(function_sort);
+    //sort the done array
+    newToDosDone.sort(function_sort);
+    //merge the two array iin one array and return it
     return newToDosNotDone.concat(newToDosDone);
-    },
-  };
-
-
+  },
+};
 
 
 // Why is this if statement necessary?

@@ -5,18 +5,18 @@
     // This is the dom node where we will keep our todo
     var container = document.getElementById('todo-container');
     var addTodoForm = document.getElementById('add-todo');
-  
+
     var state = []; // this is our initial todoList
     var sortodo = document.querySelector('.fas');
     sortodo.addEventListener('click', function(e){
       var newState = todoFunctions.sortTodos(state,true);
       update(newState);
     });
-  
+
     // This function takes a todo, it returns the DOM node representing that todo
     var createTodoNode = function(todo) {
       var todoNode = document.createElement('li');
-        
+
       // add span holding description
         let span = document.createElement('span');
         span.innerText = todo.description;
@@ -29,7 +29,7 @@
         update(newState);
       });
       todoNode.appendChild(deleteButtonNode);
-  
+
       // add markTodo button
       var markButtonNode = document.createElement('button');
       markButtonNode.innerText= 'Mark'
@@ -44,35 +44,35 @@
       }
       return todoNode;
     };
-  
+
     // bind create todo form
     if (addTodoForm) {
       addTodoForm.addEventListener('submit', function(event) {
-        event.preventDefault(); 
+        event.preventDefault();
         let description = document.querySelector('input[name=description]').value;
         let newState = todoFunctions.addTodo(state,description);
         document.querySelector('input[name=description]').value = '';
         update(newState);
       });
     }
-  
+
     // you should not need to change this function
     var update = function(newState) {
       state = newState;
       renderState(state);
     };
-  
+
     // you do not need to change this function
     var renderState = function(state) {
       var todoListNode = document.createElement('ul');
-  
+
       state.forEach(function(todo) {
         todoListNode.appendChild(createTodoNode(todo));
       });
-  
+
       // you may want to add a class for css
       container.replaceChild(todoListNode, container.firstChild);
     };
-  
+
     if (container) renderState(state);
   })();
