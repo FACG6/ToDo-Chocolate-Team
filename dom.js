@@ -6,10 +6,15 @@
   var container = document.getElementById('todo-container');
   var addTodoForm = document.getElementById('add-todo');
   /*for rmove error msg when enter not valid value*/
+<<<<<<< HEAD
+  let field = document.querySelector('input[name=description]');
+  field.addEventListener('keyup', function(e) {
+=======
   let field =   document.querySelector('input[name=description]');
   field.addEventListener('keyup',function(){
+>>>>>>> 37d57fcea13aaaf3f37577a673f1bdb105713110
     /*for prevent error if the error*/
-    if(document.querySelector('p.error')!= null)
+    if (document.querySelector('p.error') != null)
       document.querySelector('p.error').remove();
   });
 
@@ -29,14 +34,13 @@
     span.innerText = todo.description;
 
     /*start of editing*/
-    span.setAttribute('id',todo.id);
-    span.setAttribute('contenteditable','true');
-    span.classList.add('description');
+    span.setAttribute('id', todo.id);
+    span.setAttribute('contenteditable', 'true');
     todoNode.appendChild(span);
     span.addEventListener('blur', function(e) {
       let id_element = e.target.id;
       let description_element = e.target.innerText;
-      let new_array = todoFunctions.editTodo(state,id_element, description_element);
+      let new_array = todoFunctions.editTodo(state, id_element, description_element);
       update(new_array);
     })
     // this adds the delete button
@@ -96,6 +100,8 @@
       let description = document.querySelector('input[name=description]').value;
       let newState = todoFunctions.addTodo(state, description);
       if (newState === -1) {
+        if (document.querySelector('p.error') != null)
+          document.querySelector('p.error').remove();
         let error = document.createElement('p');
         error.classList.add('error');
         error.textContent = "Please Enter Valid Description .....";

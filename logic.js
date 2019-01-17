@@ -48,9 +48,6 @@ var todoFunctions = {
     // this element will have its done value toggled
     // hint: array.map
     //clone the origin array
-    if (idToMark < 0) {
-      return 'Please Enter Valid ID';
-    }
     let newToDos = todos.map(element => ({
       ...element
     }));
