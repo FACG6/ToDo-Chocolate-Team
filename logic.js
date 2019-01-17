@@ -15,14 +15,6 @@ var todoFunctions = {
     return incrementCounter;
   })(),
 
-  //cloneArrayOfObjects will create a copy of the todos array
-  //changes to the new array don't affect the original
-  // cloneArrayOfObjects: function(todos) {
-  //   return todos.map(function(todo) {
-  //     return JSON.parse(JSON.stringify(todo));
-  //   });
-  // },
-
   addTodo: function(todos, newTodo) {
     // should leave the input argument todos unchanged (you can use cloneArrayOfObjects)
     // returns a new array, it should contain todos with the newTodo added to the end.
@@ -97,9 +89,7 @@ var todoFunctions = {
     return newToDosNotDone.concat(newToDosDone);
   },
   editTodo: function(todos, idToEdit, newDescription) {
-    let newToDos = todos.map(element => ({
-      ...element
-    }));
+    let newToDos = todos.map(element => ({...element}));
     return newToDos.map(e => {
       if (e.id == idToEdit) {
         e.description = newDescription;
@@ -109,7 +99,6 @@ var todoFunctions = {
 
   }
 };
-
 
 // Why is this if statement necessary?
 // The answer has something to do with needing to run code both in the browser and in Node.js
