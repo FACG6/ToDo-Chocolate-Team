@@ -6,13 +6,9 @@
   var container = document.getElementById('todo-container');
   var addTodoForm = document.getElementById('add-todo');
   /*for rmove error msg when enter not valid value*/
-<<<<<<< HEAD
-  let field = document.querySelector('input[name=description]');
-  field.addEventListener('keyup', function(e) {
-=======
+
   let field =   document.querySelector('input[name=description]');
   field.addEventListener('keyup',function(){
->>>>>>> 37d57fcea13aaaf3f37577a673f1bdb105713110
     /*for prevent error if the error*/
     if (document.querySelector('p.error') != null)
       document.querySelector('p.error').remove();
