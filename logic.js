@@ -28,15 +28,15 @@ var todoFunctions = {
     // returns a new array, it should contain todos with the newTodo added to the end.
     // add an id to the newTodo. You can use the generateId function to create an id.
     // hint: array.conca
-    if (newTodo === "" || newTodo === null) return -1;
-    if (!isNaN(newTodo)) return -1;
+    if (newTodo === "" || newTodo === null || !isNaN(newTodo)) return -1;
     let newArray = todos.map(todo => ({
       ...todo
     }));
-    let obj = {};
-    obj.id = todoFunctions.generateId();
-    obj.description = newTodo;
-    obj.done = false;
+    let obj = {
+      id: todoFunctions.generateId(),
+      description: newTodo,
+      done: false
+    };
     newArray.push(obj);
     return newArray;
   },
@@ -96,6 +96,18 @@ var todoFunctions = {
     //merge the two array iin one array and return it
     return newToDosNotDone.concat(newToDosDone);
   },
+  editTodo: function(todos, idToEdit, newDescription) {
+    let newToDos = todos.map(element => ({
+      ...element
+    }));
+    return newToDos.map(e => {
+      if (e.id == idToEdit) {
+        e.description = newDescription;
+      }
+      return e;
+    })
+
+  }
 };
 
 

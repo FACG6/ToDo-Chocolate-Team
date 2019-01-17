@@ -219,3 +219,11 @@ test('Example test for mark', function (t) {
   t.deepEqual(actual, expect, 'the array must sort');
   t.end();
 });
+/*testing for edit*/
+test('Test deleteTodo function', function (t) {
+  let arrayForDelete = [{ id: 1, description: 'shorouq', done: false }];
+  let actual = logic.editTodo(arrayForDelete, 1 , 'shorouq saad');
+  let expected = [{ id: 1, description: 'shorouq saad', done: false }];
+  t.deepEqual(actual, expected, 'add space description');
+  t.end();
+});

@@ -8,7 +8,7 @@
   /*for rmove error msg when enter not valid value*/
   let field =   document.querySelector('input[name=description]');
   field.addEventListener('keyup',function(e){
-    /*for prevent error if the error not exist*/
+    /*for prevent error if the error*/
     if(document.querySelector('p.error')!= null)
       document.querySelector('p.error').remove();
   });
@@ -27,20 +27,31 @@
     // add span holding description
     let span = document.createElement('span');
     span.innerText = todo.description;
+
+    /*start of editing*/
+    span.setAttribute('id',todo.id);
+    span.setAttribute('contenteditable','true');
+    span.classList.add('description');
     todoNode.appendChild(span);
+    span.addEventListener('blur', function(e) {
+      let id_element = e.target.id;
+      let description_element = e.target.innerText;
+      let new_array = todoFunctions.editTodo(state,id_element, description_element);
+      update(new_array);
+    })
     // this adds the delete button
     var deleteButtonNode = document.createElement('button');
-    deleteButtonNode.innerHTML = '<i class="fa fa-trash-o"></i>';
+    var item = document.createElement('i');
+    item.classList.add('fa');
+    item.classList.add('fa-trash-o');
+    deleteButtonNode.appendChild(item);
     deleteButtonNode.addEventListener('click', function(event) {
       let dialog = document.getElementById('dialog');
       let button_ok = document.createElement('button');
-      //button_ok.classList.add('ok');
       button_ok.textContent = "Delete";
       let button_cancel = document.createElement('button');
-      //button_cancel.classList.add('cancel');
       button_cancel.textContent = "Cancel";
       dialog.textContent = "";
-      let wrapper = document.getElementById('wrapper');
       let pragraph = document.createElement('p');
       pragraph.classList.add("delete_content");
       pragraph.innerText = " Are you sure to delete  ??";
@@ -61,10 +72,12 @@
 
     // add markTodo button
     var markButtonNode = document.createElement('button');
-    markButtonNode.innerHTML = '<i class="fa fa-check"></i>'
+    var item = document.createElement('i');
+    item.classList.add('fa');
+    item.classList.add('fa-check');
+    markButtonNode.appendChild(item);
     markButtonNode.addEventListener('click', function(event) {
       var newState = todoFunctions.markTodo(state, todo.id);
-      newState = todoFunctions.sortTodos(newState);
       update(newState);
     });
     todoNode.appendChild(markButtonNode);
@@ -74,6 +87,7 @@
     }
     return todoNode;
   };
+
 
   // bind create todo form
   if (addTodoForm) {
@@ -88,7 +102,6 @@
         let parent = document.getElementById('add-todo');
         parent.appendChild(error);
       } else {
-        newState = todoFunctions.sortTodos(newState);
         document.querySelector('input[name=description]').value = '';
         update(newState);
       }
