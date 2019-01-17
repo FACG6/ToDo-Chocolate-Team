@@ -99,28 +99,28 @@ test('Test addTodo function', function (t) {
 
 test('Test addTodo function', function (t) {
   let actual = logic.addTodo(array, '');
-  let expected = array;
+  let expected = -1;
   t.deepEqual(actual, expected, 'add empty description');
   t.end();
 });
 
 test('Test addTodo function', function (t) {
   let actual = logic.addTodo(array, null);
-  let expected = array;
+  let expected = -1;
   t.deepEqual(actual, expected, 'add null description');
   t.end();
 });
 
 test('Test addTodo function', function (t) {
   let actual = logic.addTodo(array, 2);
-  let expected = array;
+  let expected = -1;
   t.deepEqual(actual, expected, 'add number description');
   t.end();
 });
 
 test('Test addTodo function', function (t) {
   let actual = logic.addTodo(array, ' ');
-  let expected = array;
+  let expected = -1;
   t.deepEqual(actual, expected, 'add space description');
   t.end();
 });
@@ -217,5 +217,13 @@ test('Example test for mark', function (t) {
     done: true
   }];
   t.deepEqual(actual, expect, 'the array must sort');
+  t.end();
+});
+/*testing for edit*/
+test('Test deleteTodo function', function (t) {
+  let arrayForDelete = [{ id: 1, description: 'shorouq', done: false }];
+  let actual = logic.editTodo(arrayForDelete, 1 , 'shorouq saad');
+  let expected = [{ id: 1, description: 'shorouq saad', done: false }];
+  t.deepEqual(actual, expected, 'add space description');
   t.end();
 });

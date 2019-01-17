@@ -12,13 +12,13 @@
 </head>
 
 <body>
-  <div class="wrapper">
+  <div id="wrapper">
     <div class="container">
       <header>
         <h1>TO-DO List <i class="fas fa-sort-amount-down sort_icone"></i></h1>
       </header>
       <form class="form_add" id="add-todo">
-        <input type="text" name="description" value="">
+        <input type="text" name="description" value="" placeholder="Please Enter Your Task :) ....">
         <input type="submit" name="" value="Add">
       </form>
       <div id="todo-container">
@@ -27,6 +27,8 @@
       </div>
     </div>
   </div>
+  <dialog id="dialog" class="dialog">
+  </dialog>
 </body>
 <script type="text/javascript" src="./logic.js"></script>
 <script type="text/javascript" src="./dom.js"></script>

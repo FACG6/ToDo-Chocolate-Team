@@ -93,8 +93,8 @@ header {
 
 .list_todo li span {
   overflow-y: auto;
-  height:100px;
-  padding:5px;
+  height: 100px;
+  padding: 5px;
   display: block;
   word-break: break-all;
 }
@@ -125,4 +125,48 @@ header {
 
 .list_todo i[class="fa fa-trash-o"] {
   margin-left: 60px;
+}
+
+.dialog {
+  padding: 5px;
+  margin: 0 auto;
+  width: 25%;
+  height: 22%;
+  background: #78470a;
+  border-radius: 7px;
+  border: 1px solid #bd670c;
+}
+
+.delete_content {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 25px 10px;
+}
+
+.dialog button {
+  float: right;
+  padding: 7px;
+  margin: 0px 5px;
+  background: #351a03d9;
+  color: #ecad71;
+  border: 1px solid #ecad71;
+  border-radius: 7px;
+  font-weight: bold;
+  outline: none;
+  cursor: pointer;
+}
+
+.dialog button:hover {
+  border: 1px solid black;
+  background: #77460a;
+  color: black;
+}
+
+.error {
+  color: #8a1818;
+  font-size: 18px;
+  margin-top: 10px;
+  padding: 5px;
+  font-weight: bold;
+  margin-right: 50px;
 }
