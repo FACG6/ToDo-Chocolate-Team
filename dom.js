@@ -6,8 +6,13 @@
   var container = document.getElementById('todo-container');
   var addTodoForm = document.getElementById('add-todo');
   /*for rmove error msg when enter not valid value*/
+<<<<<<< HEAD
   let field = document.querySelector('input[name=description]');
   field.addEventListener('keyup', function(e) {
+=======
+  let field =   document.querySelector('input[name=description]');
+  field.addEventListener('keyup',function(){
+>>>>>>> 37d57fcea13aaaf3f37577a673f1bdb105713110
     /*for prevent error if the error*/
     if (document.querySelector('p.error') != null)
       document.querySelector('p.error').remove();
@@ -15,7 +20,7 @@
 
   var state = []; // this is our initial todoList
   var sortodo = document.querySelector('.fas');
-  sortodo.addEventListener('click', function(e) {
+  sortodo.addEventListener('click', function() {
     var newState = todoFunctions.sortTodos(state, true);
     update(newState);
   });
@@ -44,7 +49,7 @@
     item.classList.add('fa');
     item.classList.add('fa-trash-o');
     deleteButtonNode.appendChild(item);
-    deleteButtonNode.addEventListener('click', function(event) {
+    deleteButtonNode.addEventListener('click', function() {
       let dialog = document.getElementById('dialog');
       let button_ok = document.createElement('button');
       button_ok.textContent = "Delete";
@@ -58,10 +63,10 @@
       dialog.appendChild(button_ok);
       dialog.appendChild(button_cancel);
       dialog.showModal();
-      button_cancel.addEventListener('click', function(e) {
+      button_cancel.addEventListener('click', function() {
         dialog.close();
       });
-      button_ok.addEventListener('click', function(e) {
+      button_ok.addEventListener('click', function() {
         var newState = todoFunctions.deleteTodo(state, todo.id);
         update(newState);
         dialog.close();
@@ -75,7 +80,7 @@
     item.classList.add('fa');
     item.classList.add('fa-check');
     markButtonNode.appendChild(item);
-    markButtonNode.addEventListener('click', function(event) {
+    markButtonNode.addEventListener('click', function() {
       var newState = todoFunctions.markTodo(state, todo.id);
       update(newState);
     });
