@@ -31,7 +31,6 @@
     /*start of editing*/
     span.setAttribute('id',todo.id);
     span.setAttribute('contenteditable','true');
-    span.classList.add('description');
     todoNode.appendChild(span);
     span.addEventListener('blur', function(e) {
       let id_element = e.target.id;

@@ -60,12 +60,6 @@ test('Example test for mark', function (t) {
   t.deepEqual(actual, expect, 'the done in index 1 must false');
   t.end();
 });
-test('Example test for mark', function (t) {
-  const actual = logic.markTodo(to_dos_mark, -1);
-  const expect = 'Please Enter Valid ID';
-  t.deepEqual(actual, expect, 'when id negative must return Please Enter Valid ID');
-  t.end();
-});
 
 test('Example test for mark', function (t) {
   const actual = logic.markTodo(to_dos_mark, 5);
